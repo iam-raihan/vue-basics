@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Vue Basics</title>
+
+		<!--css files start-->
+		<link rel="stylesheet" href="vendor/css//bootstrap.min.css" />
+		<link rel="stylesheet" href="css/app.css" />
+		<!--css files end-->
+	</head>
+	<body>
+		<h1 class="text-center">Basic Vue App</h1>
+		<hr />
+
+		<div class="container">
+			<div id="app">
+				<div class="row justify-content-center">
+					<div class="col col-3">
+						<input
+							:class="[newUserName.length > 0 ? 'border-primary' : 'border-danger']"
+							v-model="newUserName"
+							@keyup.enter="addNewUser"
+							type="text"
+							class="form-control-sm border"
+						/>
+						<button
+							:disabled="newUserName.length === 0"
+							@click="addNewUser"
+							class="btn btn-primary btn-sm mb-1">
+							Add User
+						</button>
+					</div>
+
+					<div class="col col-2 text-right">
+						<blockquote class="blockquote font-weight-bold">
+							<span v-if="countUsers > 0">Count : {{ countUsers }}</span>
+							<span v-else>--</span>
+						</blockquote>
+					</div>
+				</div>
+
+				<div class="row justify-content-center">
+					<div class="col col-5">
+						<!-- custom component -->
+                        <my-user-list
+                            :users="users"
+                            v-on:remove-user="removeUser"
+                        />
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--script files start-->
+		<script src="vendor/js/jquery.slim.min.js"></script>
+		<script src="vendor/js/bootstrap.min.js"></script>
+		<script src="vendor/js/vue.min.js"></script>
+		<script src="js/app.js"></script>
+		<!--script files end-->
+	</body>
+</html>

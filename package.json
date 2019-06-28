@@ -1,0 +1,20 @@
+{
+	"name": "vue-basics",
+	"version": "1.0.0",
+	"private": true,
+	"description": "playing with basics of vuejs",
+	"main": "index.js",
+	"keywords": [
+		"vue",
+		"vuejs",
+		"vue basic"
+	],
+	"author": "Raihan Al-Mamun <iam.raihan96@gmail.com>",
+	"license": "MIT",
+	"scripts": {
+		"start": "browser-sync start --server --files \".\""
+	},
+	"devDependencies": {
+		"browser-sync": "^2.26.7"
+	}
+}
